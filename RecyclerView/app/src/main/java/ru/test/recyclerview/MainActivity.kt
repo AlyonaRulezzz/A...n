@@ -6,9 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.test.recyclerview.Countries.CountryAdapterClass
 import ru.test.recyclerview.Countries.CountryDataClass
+import ru.test.recyclerview.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
     private lateinit var countryRecyclerView: RecyclerView
     private lateinit var countryDataList: ArrayList<CountryDataClass>
 
@@ -61,9 +63,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        countryRecyclerView = findViewById(R.id.rv_country)
+        countryRecyclerView = binding.rvCountry
         countryRecyclerView.layoutManager = LinearLayoutManager(this)
         countryRecyclerView.setHasFixedSize(true) // for UNmutable size of recyclerView only, for less push on CPU
 

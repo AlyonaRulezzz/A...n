@@ -7,20 +7,23 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.test.recyclerview.R
+import ru.test.recyclerview.databinding.ActivityMainBinding
+import ru.test.recyclerview.databinding.ItemLayoutBinding
 
 class CountryAdapterClass(private val countryDataList: ArrayList<CountryDataClass>) :
     RecyclerView.Adapter<CountryAdapterClass.CountryViewHolderClass>() {
 
-    class CountryViewHolderClass(itemView: View) :
-    RecyclerView.ViewHolder(itemView) {
-        val rvCountryFlag = itemView.findViewById<ImageView>(R.id.iv_country_flag)
-        val rvCountryName = itemView.findViewById<TextView>(R.id.tv_country_name)
-        val rvCountryId = itemView.findViewById<TextView>(R.id.tv_country_id)
+    class CountryViewHolderClass(private val binding: ItemLayoutBinding) :
+    RecyclerView.ViewHolder(binding.root) {
+        val rvCountryFlag = binding.ivCountryFlag
+        val rvCountryName = binding.tvCountryName
+        val rvCountryId = binding.tvCountryId
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryViewHolderClass {
         val item = LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
-        return CountryViewHolderClass(item)
+        val binding = ItemLayoutBinding.bind(item)
+        return CountryViewHolderClass(binding)
     }
 
     override fun onBindViewHolder(holder: CountryViewHolderClass, position: Int) {
