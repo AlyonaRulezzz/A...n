@@ -1,6 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">RecyclerView</string>
     <string name="goToContactList">Перейти в список контактов</string>
     <string name="goToCountryList">Перейти к списку стран</string>
-    <string name="add">Add</string>
 </resources>

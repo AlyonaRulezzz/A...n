@@ -1,7 +1,10 @@
 package ru.test.recyclerview
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.test.recyclerview.Countries.CountryAdapterClass
@@ -80,5 +83,10 @@ class MainActivity : AppCompatActivity() {
             countryDataList.add(countryDataClass)
         }
         countryRecyclerView.adapter = CountryAdapterClass(countryDataList)
+    }
+
+    fun goToContactActivity(view: View) {
+        val intent = Intent(this, ContactActivity::class.java)
+        startActivity(intent)
     }
 }
