@@ -1,13 +1,14 @@
-package ru.test.recyclerview.Contacts
+package ru.test.recyclerview.contacts
 
 import android.text.SpannableStringBuilder
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import ru.test.recyclerview.R
 import ru.test.recyclerview.databinding.ContactItemLayoutBinding
 
-class ContactAdapterClass(private val contactDataList: ArrayList<ContactDataClass>) :
+class ContactAdapterClass(private var contactDataList: List<ContactDataClass>,private var contactDataListBeforeChanges: MutableList<ContactDataClass>) :
     RecyclerView.Adapter<ContactAdapterClass.ContactViewHolderClass>() {
 
     class ContactViewHolderClass(private val binding: ContactItemLayoutBinding) :
@@ -33,11 +34,25 @@ class ContactAdapterClass(private val contactDataList: ArrayList<ContactDataClas
             rvContactSurname.text = SpannableStringBuilder(currentItem.contactSurname)
             rvContactPhone.text = SpannableStringBuilder(currentItem.contactPhone.toString())
             rvContactIsChecked.isChecked = currentItem.contactIsChecked
-
+            rvContactIsChecked.setOnCheckedChangeListener {_, _ ->
+                currentItem.contactIsChecked = !currentItem.contactIsChecked
+            }
         }
     }
 
     override fun getItemCount(): Int {
         return contactDataList.size
+    }
+
+    fun setData(newContactList: List<ContactDataClass>) {
+        val diffUtil = ContactDiffUtil(contactDataListBeforeChanges, newContactList)
+        val diffResults =DiffUtil.calculateDiff(diffUtil)
+//        contactDataList = newContactList
+//        println("AFTER")
+//        println(contactDataListBeforeChanges.last())
+//        println(newContactList.last())
+//        println("--------")
+        contactDataListBeforeChanges = contactDataList.toMutableList()
+        diffResults.dispatchUpdatesTo(this)
     }
 }

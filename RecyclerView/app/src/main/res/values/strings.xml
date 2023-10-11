@@ -3,4 +3,5 @@
     <string name="goToContactList">Перейти в список контактов</string>
     <string name="goToCountryList">Перейти к списку стран</string>
     <string name="add">Add</string>
+    <string name="delete">delete</string>
 </resources>

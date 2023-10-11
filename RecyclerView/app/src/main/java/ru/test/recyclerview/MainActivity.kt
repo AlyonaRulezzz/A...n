@@ -4,11 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.test.recyclerview.Countries.CountryAdapterClass
-import ru.test.recyclerview.Countries.CountryDataClass
+import ru.test.recyclerview.countries.CountryAdapterClass
+import ru.test.recyclerview.countries.CountryDataClass
 import ru.test.recyclerview.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

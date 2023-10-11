@@ -1,8 +1,8 @@
-package ru.test.recyclerview.Contacts
+package ru.test.recyclerview.contacts
 
 import androidx.recyclerview.widget.DiffUtil
 
-class ContactDiffUtil(private val oldContactList: List<ContactDataClass>,
+class ContactDiffUtil(private val oldContactList: MutableList<ContactDataClass>,
                       private val newContactList: List<ContactDataClass>) : DiffUtil.Callback() {
     override fun getOldListSize(): Int  = oldContactList.size
 
@@ -17,7 +17,7 @@ class ContactDiffUtil(private val oldContactList: List<ContactDataClass>,
             oldContactList[oldItemPosition].contactName != newContactList[newItemPosition].contactName -> false
             oldContactList[oldItemPosition].contactSurname != newContactList[newItemPosition].contactSurname -> false
             oldContactList[oldItemPosition].contactPhone != newContactList[newItemPosition].contactPhone -> false
-            oldContactList[oldItemPosition].contactCheckBox != newContactList[newItemPosition].contactCheckBox -> false
+            oldContactList[oldItemPosition].contactIsChecked != newContactList[newItemPosition].contactIsChecked -> false
             else -> true
         }
     }

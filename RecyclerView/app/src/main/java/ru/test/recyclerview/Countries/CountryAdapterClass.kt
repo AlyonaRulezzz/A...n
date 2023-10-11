@@ -1,4 +1,4 @@
-package ru.test.recyclerview.Countries
+package ru.test.recyclerview.countries
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
