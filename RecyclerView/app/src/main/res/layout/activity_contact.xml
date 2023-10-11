@@ -14,7 +14,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="12dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout_add_new_contact"
+        app:layout_constraintBottom_toTopOf="@+id/btn_contact_delete"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
@@ -49,36 +49,51 @@
 
             <EditText
                 android:id="@+id/et_contact_add_name"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:hint="Имя"
-                android:textSize="10sp"/>
+                android:textSize="20sp"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
+                />
 
             <EditText
                 android:id="@+id/et_contact_add_surname"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="text"
                 android:hint="Фамилия"
-                android:textSize="10sp"/>
+                android:textSize="20sp"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
+
+                />
 
             <EditText
                 android:id="@+id/et_contact_add_phone"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:hint="Телефон"
-                android:textSize="10sp"/>
+                android:inputType="phone"
+                android:textSize="20sp"
+                android:maxLength="14"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
+                />
 
         </LinearLayout>
 
 <!--            android:onClick="addContact"-->
         <Button
             android:id="@+id/btn_contact_add"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_gravity="center"
-            android:text="@string/add"
-            android:imeOptions="actionDone"
-            />
+            android:text="@string/add" />
 
     </LinearLayout>
 
